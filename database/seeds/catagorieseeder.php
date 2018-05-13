@@ -11,6 +11,12 @@ class catagorieseeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('categories')->insert([
+            array('categories' => 'Herenzonnebrillen'),
+            array( 'categories' => 'Dameszonnebrillen'),
+            array('categories' => 'Kinderzonnebrillen'),
+            array('categories' => 'Sportbrillen'),
+            array('categories' => 'Nachtzonnebrillen'),
+        ]);
     }
 }

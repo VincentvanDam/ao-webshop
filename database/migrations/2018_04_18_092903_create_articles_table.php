@@ -15,7 +15,11 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
+            $table->float('price',10,2);
+            $table->char('name',255);
+            $table->char('speed', 255);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
