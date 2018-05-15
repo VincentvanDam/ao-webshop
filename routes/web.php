@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // To catagories
-Route::get('/categories', 'categoryController@index');
+Route::get('/categories', 'CategoryController@index');
 
 // To articles
-Route::get('/articles', 'ArticleController@index');
+Route::get('/products', 'ProductController@index');

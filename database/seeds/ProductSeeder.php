@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ArticleSeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('articles')->insert([
+        DB::table('products')->insert([
             array('name'=>'2083 montuur' , 'price' => '14.99','speed'=>'100 km/h'),
             array('name'=>'Het laskap montuur', 'price'=>'19.99','speed'=>'120 km/h'),
             array('name'=>'Flitsend montuur', 'price'=>'9.99','speed'=>'150 km/h'),
