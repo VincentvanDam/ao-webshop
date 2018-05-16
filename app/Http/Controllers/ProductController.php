@@ -7,9 +7,13 @@ use App\categories;
 use App\Products;
 
 class ProductController extends Controller{
-    public function index()
-    {
+    public function index(){
         $products = Products::All();
-        return view ('products.index')->with('products',$products);
+        return view('products.index', compact('products'));
+    }
+
+    public function display($id){
+        $products = Products::findOrFail($id);
+        return view('products.product_details', compact('products'));
     }
 }

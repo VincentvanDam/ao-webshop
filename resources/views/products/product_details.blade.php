@@ -5,14 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Products</div>
+                    <div class="card-header">Artikel details</div>
                     <div class="card-body">
+                        <div>
+                            <h2>{{ $products->name }}</h2>
+                        </div>
                         <ul>
-
-                            @foreach ($products as $prod)
-                                <li><a href="{{ action('ProductController@display', $prod->id) }}">{{ $prod->name}}</a></li>
-                            @endforeach
-
+                            <li>{{ $products->speed }}</li>
+                            <li>€{{ $products->price }}</li>
                         </ul>
                     </div>
                 </div>

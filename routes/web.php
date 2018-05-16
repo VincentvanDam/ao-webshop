@@ -24,3 +24,4 @@ Route::get('/categories', 'CategoryController@index');
 
 // To articles
 Route::get('/products', 'ProductController@index');
+Route::get('products/{id}/details', 'ProductController@display');
