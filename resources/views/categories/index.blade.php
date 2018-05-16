@@ -5,12 +5,12 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Articles</div>
+                    <div class="card-header">Categoriën</div>
                     <div class="card-body">
                         <ul>
 
-                            @foreach ($categories as $cat)
-                                <li>{{ $cat->name }}</li>
+                            @foreach ($products as $prod)
+                                <li><a href="{{ action('ProductController@display', $prod->id) }}">{{ $prod->name}}</a></li>
                             @endforeach
 
                         </ul>

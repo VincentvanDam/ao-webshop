@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // To catagories
 Route::get('/categories', 'CategoryController@index');
+Route::get('/categories/{id}/details', 'ProductController@display');
 
 // To articles
 Route::get('/products', 'ProductController@index');
