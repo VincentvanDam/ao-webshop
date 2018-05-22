@@ -15,7 +15,7 @@ class CreateCategoryProductsTable extends Migration
     {
         Schema::create('category_products', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('categories_id')->nullable();
+            $table->unsignedInteger('category_id')->nullable();
             $table->unsignedInteger('products_id')->nullable();
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateCategoryProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories_products');
+        Schema::dropIfExists('category_products');
     }
 }
