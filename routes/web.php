@@ -26,3 +26,8 @@ Route::get('/categories/{id}/details', 'CategoryController@display');
 // To articles
 Route::get('/products', 'ProductController@index');
 Route::get('products/{id}/details', 'ProductController@display');
+
+//ShoppingCart
+Route::get('products/{id}', 'CartController@getProduct');
+Route::get('/addProduct', 'CartController@addProduct');
+Route::get('shopping-cart', 'CartController@getShoppingCart');
