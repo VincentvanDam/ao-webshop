@@ -16,9 +16,7 @@
                             <li>{{ $products->speed }}</li>
                             <li>€{{ $products->price }}</li>
                         </ul>
-                        <a class="btn btn-dark" href="{{ action('CartController@getProduct', $products->id) }}">Add to cart</a>
-                        <a class="btn btn-dark" href="{{ action('CartController@getShoppingCart') }}">To Cart</a>
-
+                        <a href="{{route('cart.addToCart', ['id' => $products->id])}}">add to cart</a>
 
                     </div>
                     </div>

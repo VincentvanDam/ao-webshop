@@ -2,37 +2,32 @@
 
 namespace App;
 
-use Illuminate\Http\Request;
-use App\Products;
-use Session;
-use App\StoredItem;
 
 class ShoppingCart{
 
-    const SHOPPING_CART = 'shopping_cart';
-    public $session;
-    public $storedItems = [];
+    public $items = null;
+    public $totalQty = 0;
+    public $totalPrice = 0;
 
-
-    public function __construct($session){
-        $this->session = session();
-        if (!empty($session)) {
-            $this->storedItems = $this->session->get(self::SHOPPING_CART);
-        }
-    }
-    public function add($productId) {
-        $product = Products::findOrFail($productId);
-        $qty = 0;
-        $qty++;
-        // If product id is not equal to null then store product in Object and push StoredItem to shopping_cart array
-        if ($product != NULL) {
-            $storedItem = new StoredItem($product, $qty);
-            $this->storedItems = session()->push('shopping_cart', $storedItem);
+    public function  __construct($oldCart){
+        if ($oldCart) {
+            $this->items = $oldCart->items;
+            $this->totalQty = $oldCart->totalQty;
+            $this->totalPrice = $oldCart->totalPrice;
         }
     }
 
-    public function getItems() {
-        // storedItems is an array
-        return $this->storedItems;
+    public function add($item, $id) {
+        $storedItem = ['qty' => 0, 'price' => $item->price, 'item' => $item];
+        if ($this->items) {
+            if (array_key_exists($id, $this->items)) {
+                $storedItem = $this->items[$id];
+            }
+        }
+        $storedItem['qty']++;
+        $storedItem['price'] = $item->price * $storedItem['qty'];
+        $this->items[$id] = $storedItem;
+        $this->totalQty++;
+        $this->totalPrice += $item->price;
     }
 }

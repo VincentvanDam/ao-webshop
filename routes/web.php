@@ -24,10 +24,17 @@ Route::get('/categories', 'CategoryController@index');
 Route::get('/categories/{id}/details', 'CategoryController@display');
 
 // To articles
-Route::get('/products', 'ProductController@index');
+Route::get('/', [
+    'uses'=> 'ProductController@index',
+    'as' =>'product.index'
+]);
 Route::get('products/{id}/details', 'ProductController@display');
 
 //ShoppingCart
-Route::get('products/{id}', 'CartController@getProduct');
-Route::get('/addProduct', 'CartController@addProduct');
-Route::get('shopping-cart', 'CartController@getShoppingCart');
+Route::get('/add-to-cart/{id}',[
+    'uses' => 'CartController@addProduct',
+    'as' => 'cart.addToCart']);
+
+Route::get('/shopping-cart',[
+    'uses' => 'CartController@getCart',
+    'as' => 'cart.getCart']);
