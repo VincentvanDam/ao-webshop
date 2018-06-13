@@ -23,8 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/categories', 'CategoryController@index');
 Route::get('/categories/{id}/details', 'CategoryController@display');
 
-// To articles
-Route::get('/', [
+// To products
+Route::get('/products', [
     'uses'=> 'ProductController@index',
     'as' =>'product.index'
 ]);

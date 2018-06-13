@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\ShoppingCart;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Products;
-use App\ShoppingCart;
 
 class ProductController extends Controller{
     public function index(){
         $products = Products::All();
-        return view('products.index', compact('products'));
+        return view('products.index', ['products' => $products]);
     }
 
     public function display($id){

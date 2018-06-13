@@ -5,11 +5,11 @@
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset3">
                 <ul class="list-group">
-                    @foreach($products as $product)
+                    @foreach ($products as $prod)
                         <li class="list-group-item">
-                            <span class="badge">{{  $product['qty'] }}</span>
-                            <strong>{{ $product['item']['title'] }}</strong>
-                            <span class="label label-success">{{ $product['price'] }}</span>
+                            <span class="badge">{{  $prod['qty'] }}</span>
+                            <strong>{{ $prod['item']['title'] }}</strong>
+                            <span class="label label-success">{{ $prod['price'] }}</span>
                             <div class="btn-group">
                                 <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">Action<span class="caret"></span> </button>
                                 <ul class="dropdown-menu">

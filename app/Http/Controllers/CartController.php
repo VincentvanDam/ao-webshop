@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Products;
 use App\ShoppingCart;
 use Session;
 use Illuminate\Http\Request;
-use App\Products;
+
 
 
 class CartController extends Controller{
@@ -25,7 +26,7 @@ class CartController extends Controller{
             return view('cart.index', ['products' => null]);
         }
         $oldCart = Session::get('cart');
-        $cart = new Cart($oldCart);
+        $cart = new ShoppingCart($oldCart);
         return view('cart.index', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 }

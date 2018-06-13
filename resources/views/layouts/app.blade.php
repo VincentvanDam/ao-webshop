@@ -40,7 +40,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li>
-                            <a href="{{ route('cart.getCart') }}}">
+                            <a href="{{ route('cart.getCart') }}">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart
                                 <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
                             </a>
