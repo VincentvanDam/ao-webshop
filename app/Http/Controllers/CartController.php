@@ -22,11 +22,21 @@ class CartController extends Controller{
     }
 
     public function getCart(){
-        if (Session::has('cart')) {
-            return view('cart.index', ['products' => null]);
+        if (!Session::has('cart')) {
+            return view('cart.index');
         }
         $oldCart = Session::get('cart');
         $cart = new ShoppingCart($oldCart);
         return view('cart.index', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
+
+    public function getCheckout(){
+        if (!Session::has('cart')) {
+            return view('cart.index');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new ShoppingCart($oldCart);
+        $total = $cart->totalPrice;
+        return view('cart.checkout', ['total' => $total]);
     }
 }

@@ -38,3 +38,11 @@ Route::get('/add-to-cart/{id}',[
 Route::get('/shopping-cart',[
     'uses' => 'CartController@getCart',
     'as' => 'cart.getCart']);
+
+Route::get('/checkout',[
+    'uses' => 'CartController@getCheckout',
+    'as' => 'checkout']);
+
+Route::post('/checkout',[
+    'uses' => 'CartController@postCheckout',
+    'as' => 'checkout']);
