@@ -1,11 +1,11 @@
-Stripe\Stripe::setApiKey("sk_test_LyaKReg8xUARTSBLA5SgcuYe");
+Stripe.setPublishableKey('pk_test_J2B5tbyAtVJmxq8dnMxDtlYR');
 
 var $form = $('#checkout-form');
 
 $form.submit(function(event) {
     $('#charge-error').addClass('hidden');
     $form.find('button').prop('disabled', true);
-    Stripe.charges.create({
+    Stripe.card.createToken({
         number: $('#card-number').val(),
         cvc: $('#card-cvc').val(),
         exp_month: $('#card-expiry-month').val(),
@@ -23,8 +23,7 @@ function stripeResponseHandler(status, response) {
     } else {
         var token = response.id;
         $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-               // Submit the form:
+        // Submit the form:
         $form.get(0).submit();
     }
 }
-

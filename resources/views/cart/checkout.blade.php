@@ -17,23 +17,23 @@
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" class="form-control" name="name" required>
                         </div>
                     </div>
-                    <div class="col-xs-12">
+                    <div>
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <input type="text" id="address" class="form-control" required>
+                            <input type="text" id="address" class="form-control" name="address" required>
                         </div>
                     </div>
                     <hr>
-                    <div class="col-xs-12">
+                    <div>
                         <div class="form-group">
                             <label for="card-name">Card Holder Name</label>
                             <input type="text" id="card-name" class="form-control" required>
                         </div>
                     </div>
-                    <div class="col-xs-12">
+                    <div>
                         <div class="form-group">
                             <label for="card-number">Credit Card Number</label>
                             <input type="text" id="card-number" class="form-control" required>
@@ -70,6 +70,6 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <script type="text/javascript" src="{{ URL::to('js/checkout.js') }}"></script>
+    <script src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="{{ URL::to('src/js/checkout.js') }}"></script>
 @endsection
